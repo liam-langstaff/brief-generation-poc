@@ -15,6 +15,7 @@ export class GenerateQuestionsService {
     this.isTypingSource.next(value);
   }
 
+  // sets html and body class background
   setFocusBackground(setFocus: boolean) {
     this.setFocusBackgroundSource$.next(setFocus);
   }
