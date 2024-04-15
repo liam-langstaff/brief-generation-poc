@@ -1,0 +1,55 @@
+.questionnaire {
+  &__question {
+    display: flex;
+    gap: 24px;
+    background-color: #EBEDE7;
+    padding: 40px;
+    color: #27292B;
+    transition: background-color 0.2s ease-in-out;
+
+    &--question-context {
+      line-height: 26px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      background-color: darken(#EBEDE7, 20%);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &--question-title {
+      font-family: "Karla", sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 0;
+      padding-top: 0;
+      margin-bottom: 8px;
+    }
+
+    p {
+      opacity: 0.7;
+    }
+  }
+}
+
+// medium breakpoint
+@media screen and (min-width: 768px) {
+  .questionnaire {
+
+    &__question {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+

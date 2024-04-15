@@ -1,0 +1,201 @@
+@keyframes flash {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.cursor {
+  animation: flash 1s steps(1, end) infinite;
+}
+
+.generate-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.generate-cta-secondary {
+  padding: 20px 60px 20px 0;
+  font-size: 23px;
+  color: #fff;
+  text-decoration: underline;
+  width: auto;
+
+}
+
+.generate-cta {
+  padding: 20px 60px;
+  background: #fff;
+  color: #27292B;
+  transition: background 0.2s, color 0.2s;
+  border: 3px solid #fff;
+  width: auto;
+  font-size: 23px;
+  display: block;
+  font-weight: bold;
+
+  &:hover {
+    background: #27292B;
+    color: #fff;
+  }
+}
+
+.pane-actions {
+  margin-left: -10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  max-width: 1200px;
+  width: 100%;
+
+  button {
+    max-width: 20px;
+    cursor: pointer;
+  }
+}
+
+.questionnaire__overview.hasFocus {
+  .default {
+    color: white !important;
+  }
+}
+
+.questionnaire {
+
+  &__questions {
+    transition: width 1s, flex-grow 1s;
+    width: 100%;
+    min-width: auto;
+  }
+
+  &__position {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    //background-color: #F3F4F1;
+    padding: 20px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1200px;
+    color: #27292B;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    & > * {
+      flex: 1 0 calc(50% - 20px);
+    }
+
+    &.fadeout {
+      gap: 0;
+
+      & > .questionnaire__overview {
+        font-size: 56px;
+      }
+
+      & > .questionnaire__questions {
+        opacity: 0; // This will fade out the element
+        width: 1px;
+        overflow: hidden; // Prevents contents from overflowing
+        flex: 0 1 !important;
+      }
+    }
+  }
+
+
+
+  &__title {
+    font-family: "Karla", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 0;
+    transition: font-size 1s;
+  }
+
+}
+
+.questionnaire__overview {
+  font-size: 36px;
+  font-family: "Karla", sans-serif;
+  padding-top: 20px;
+  position: relative;
+  transition: color 1s;
+}
+
+.material-symbols-outlined {
+  font-size: 34px !important;
+}
+
+.set1 {
+  color: darken(#E8C2CA, 30%);
+}
+
+.set2 {
+  color: darken(#71A9F7, 30%);
+}
+
+.set3 {
+  color: #72195A;
+}
+
+.set4 {
+  color: darken(#76E5FC, 30%);
+}
+
+// medium breakpoint
+@media screen and (min-width: 768px) {
+  .questionnaire {
+
+    &__position {
+      justify-content: center;
+    }
+
+    &__wrapper {
+      //Specify medium breakpoint specific styles here
+    }
+
+    &__title {
+      //Specify medium breakpoint specific styles here
+    }
+  }
+
+  .material-symbols-outlined {
+    //Specify medium breakpoint specific styles here
+  }
+
+  .questionnaire__overview {
+    padding-top: 0;
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader,
+.loader:before,
+.loader:after{
+  width: 35px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px inset #27292B;
+  position: relative;
+  animation: l6 1.5s infinite 0.5s;
+}
+.loader:before,
+.loader:after{
+  content: "";
+  position: absolute;
+  left: calc(100% + 5px);
+  animation-delay: 1s;
+}
+.loader:after{
+  left: -40px;
+  animation-delay: 0s;
+}
+@keyframes l6 {
+  0%,55%,100%  {border-radius:0  }
+  20%,30%      {border-radius:50%}
+}

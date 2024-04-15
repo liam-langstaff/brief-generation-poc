@@ -1,0 +1,11 @@
+@for (set of (currentSet$ | async)?.questions; track set.title ) {
+  <button [disabled]="isTyping" (click)="addQuestionPart(set.partText, set.className, set.id)" class="questionnaire__question">
+    <div class="questionnaire__question--icon">
+      <span class="material-symbols-outlined">indeterminate_question_box</span>
+    </div>
+    <div class="questionnaire__question--question">
+      <h3 class="questionnaire__question--question-title">{{set.title}}</h3>
+      <p class="questionnaire__question--question-context">{{set.subText}}</p>
+    </div>
+  </button>
+}

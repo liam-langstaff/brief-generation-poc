@@ -1,0 +1,26 @@
+<div class="questionnaire__position">
+  <div class="pane-actions" *ngIf="!allQuestionsAnswered">
+    <button class="previous" (click)="previousSet()">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <button class="next" (click)="nextSet()">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+  <div class="questionnaire__wrapper"  [class.fadeout]="allQuestionsAnswered">
+    <div class="questionnaire__questions">
+      <app-questions  [currentSet$]="currentSet$" (emitQuestionPart$)="completeSet($event)" (typingTrigger)="typingTrigger.next()"></app-questions>
+    </div>
+    <div class="questionnaire__overview" [class.hasFocus]="allQuestionsAnswered">
+      <span class="default">I'd like to </span><span id="includer"></span> <span class="cursor">_</span>
+      <div class="generate-actions">
+        <button class="generate-cta-secondary" *ngIf="allQuestionsAnswered" (click)="previousSet()">Go back</button>
+        <button class="generate-cta" *ngIf="allQuestionsAnswered">Create brief</button>
+      </div>
+
+<!--      <div class="loader" *ngIf="allQuestionsAnswered"></div>-->
+    </div>
+  </div>
+</div>
+
+
