@@ -1,12 +1,12 @@
 $borderColor: lighten(#27292B, 70%);
 
-::ng-deep markdown h1, h2, h3, h4, h5, h6,
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Karla", sans-serif;
+  font-family: "Karla", sans-serif !important;
 }
 
 .page p {
-  line-height: 30px;
+  line-height: 30px !important;
 }
 
 .gradient-text {
@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 
 .pill {
   padding: 8px;
@@ -27,20 +28,38 @@ h1, h2, h3, h4, h5, h6 {
   background: #eee;
 }
 
-#brief__overview {
+#brief__overview, #brief__content {
   margin-top: 20px;
+}
 
-  .brief__fw-box {
-    background: #EEEEEE;
-    padding: 20px;
-    height: 100%;
-    border: 1px solid #dadcdd;
+.brief__fw-box {
+  background: #EEEEEE;
+  padding: 20px;
+  height: 100%;
+  border: 1px solid #dadcdd;
 
-    &.box2 {
-      background: #abbaab; /* fallback for old browsers */
-      background: -webkit-linear-gradient(45deg, #ffffff, #abbaab); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(45deg, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
+  &.box2 {
+    background: #abbaab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(45deg, #ffffff, #abbaab); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  &.box3 {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #eee 0, #eee 1px, #fff 0, #fff 50%);
+  }
+
+  &.box4 {
+    background-color: #e5e5f7;
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(0deg, #eee, #eee 1px, #fff 1px, #fff);
+  }
+
+  &.box5 {
+    background-color: #e5e5f7;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #efefef 10px), repeating-linear-gradient(#ececec, rgba(238, 238, 238, 1));
   }
 }
 
