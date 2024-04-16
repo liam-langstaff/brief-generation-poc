@@ -176,7 +176,7 @@ export class GenerateComponent implements OnInit, OnDestroy {
     this.startTyping();
 
     this.isGenerating$.pipe(skipWhile((val) => !val)).subscribe((val) => {
-      if (!val) this._gqs.setFocusBackgroundSource$.next(false);
+      // if (!val) this._gqs.setFocusBackgroundSource$.next(false);
     });
   }
 

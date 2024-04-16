@@ -57,3 +57,14 @@ button {
     outline: 2px solid black;
   }
 }
+
+.full-width {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+
+  .columns, .column {
+    margin: 0;
+    padding: 0;
+  }
+}
