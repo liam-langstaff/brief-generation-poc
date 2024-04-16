@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/spectre.css/dist/spectre.min.css",
               "src/styles.scss"
             ],
             "scripts": []

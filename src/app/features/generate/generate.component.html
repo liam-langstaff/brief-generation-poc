@@ -1,26 +1,30 @@
 <div class="questionnaire__position">
-  <div class="pane-actions" *ngIf="!allQuestionsAnswered">
-    <button class="previous" (click)="previousSet()">
+  <div [class.hidden]="!(isGenerating$ | async)" class="loader">
+  </div>
+  <span *ngIf="(isGenerating$ | async)" [text]="'Generating your brief '" [typingSpeed]="100" appTyping
+        class="typing-animation"></span>
+  <div *ngIf="!allQuestionsAnswered && !(isGenerating$ | async)" class="pane-actions">
+    <button (click)="previousSet()" [disabled]="!canPreviousSet" class="previous">
       <span class="material-symbols-outlined">chevron_left</span>
     </button>
-    <button class="next" (click)="nextSet()">
+    <button (click)="nextSet()" [disabled]="!canNextSet" class="next">
       <span class="material-symbols-outlined">chevron_right</span>
     </button>
   </div>
-  <div class="questionnaire__wrapper"  [class.fadeout]="allQuestionsAnswered">
+  <div *ngIf="!(isGenerating$ | async)" [class.fadeout]="allQuestionsAnswered" class="questionnaire__wrapper">
     <div class="questionnaire__questions">
-      <app-questions  [currentSet$]="currentSet$" (emitQuestionPart$)="completeSet($event)" (typingTrigger)="typingTrigger.next()"></app-questions>
+      <app-questions (emitQuestionPart$)="completeSet($event)" (typingTrigger)="typingTrigger.next()"
+                     [currentSet$]="currentSet$"></app-questions>
     </div>
-    <div class="questionnaire__overview" [class.hasFocus]="allQuestionsAnswered">
+    <div [class.hasFocus]="allQuestionsAnswered" class="questionnaire__overview">
       <span class="default">I'd like to </span><span id="includer"></span> <span class="cursor">_</span>
       <div class="generate-actions">
-        <button class="generate-cta-secondary" *ngIf="allQuestionsAnswered" (click)="previousSet()">Go back</button>
-        <button class="generate-cta" *ngIf="allQuestionsAnswered">Create brief</button>
+        <button (click)="previousSet()" *ngIf="allQuestionsAnswered" class="generate-cta-secondary">Go back</button>
+        <button (click)="startGeneration()" *ngIf="allQuestionsAnswered" class="generate-cta">Create brief</button>
       </div>
-
-<!--      <div class="loader" *ngIf="allQuestionsAnswered"></div>-->
     </div>
   </div>
 </div>
+
 
 

@@ -11,6 +11,17 @@ html, body {
   background-color: #F3F4F1;
   color: #27292B;
   transition: background-color 1s, color 1s;
+  overflow: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  float: none;
+  margin: 0 auto;
 }
 
 body.hasFocus {
