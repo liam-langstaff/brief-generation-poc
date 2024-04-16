@@ -5,6 +5,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Karla", sans-serif !important;
 }
 
+.page {
+  margin-bottom: 30px;
+}
+
 .page p {
   line-height: 30px !important;
 }
@@ -29,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #brief__overview, #brief__content {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .brief__fw-box {
