@@ -10,10 +10,20 @@
   }
 }
 
+.loader__container {
+  height: calc(100vh - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .typing-animation {
   position: relative;
   white-space: pre;
   font-family: "Karla", sans-serif;
+  margin: 0 auto;
+  float: none;
+  text-align: center;
 }
 
 .typing-animation:after {
@@ -94,12 +104,12 @@
   }
 
   &__position {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 20px;
+    //display: flex;
+    //justify-content: flex-start;
+    //flex-direction: column;
+    //align-items: center;
+    //height: auto;
+    //padding: 20px;
     min-height: calc(100vh - 158px);
     margin-top: 50px;
   }
@@ -232,6 +242,7 @@
   width: 48px;
   height: 48px;
   position: relative;
+  margin: 0 auto 50px auto;
 }
 
 .loader:before {
