@@ -67,6 +67,35 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#brief__actions {
+  margin: 0 auto;
+  max-width: calc(1200px - 44px);
+  padding: 24px 0;
+  border-bottom: 1px solid $borderColor;
+
+  .brief__actions-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h4 {
+      margin: 0;
+    }
+  }
+}
+
+#brief__actions-bar {
+  display: flex;
+}
+
+.secondary-actions, .primary-actions {
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 0;
+  gap: 8px;
+  margin-top: 24px;
+}
+
 
 #brief__title, #brief__meta {
   border-top: 1px solid $borderColor;
@@ -103,6 +132,18 @@ h1, h2, h3, h4, h5, h6 {
     .brief__header__content {
       padding-left: 30px;
     }
+  }
+
+  .primary-actions {
+    border-left: 1px solid $borderColor;
+  }
+
+  .primary-actions, .secondary-actions {
+    margin-top: 0;
+  }
+
+  #brief__actions-bar {
+    justify-content: flex-end;
   }
 
 }

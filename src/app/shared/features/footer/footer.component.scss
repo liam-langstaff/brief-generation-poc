@@ -1,0 +1,19 @@
+$borderColor: lighten(#27292B, 70%);
+
+#brief__footer {
+  padding: 32px;
+  border-top: 1px solid $borderColor;
+}
+
+.copyright {
+  text-align: right;
+}
+
+.logo {
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+
+  span {
+    font-weight: 700;
+  }
+}
