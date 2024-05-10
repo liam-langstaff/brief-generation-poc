@@ -23,17 +23,27 @@
   <div class="container" id="brief__actions">
     <div class="columns">
       <div class="column col-md-6 col-sm-12 brief__actions-title">
-        <img ngSrc="assets/icons/assignment_icon.svg" alt="brief-icon" height="24"
-                                        width="24">
+        <img alt="brief-icon" height="24" ngSrc="assets/icons/assignment_icon.svg"
+             width="24">
         <h4>HarmonyBites brief</h4>
 
       </div>
       <div class="column col-md-6 col-sm-12">
         <div id="brief__actions-bar">
           <div class="secondary-actions">
-            <img ngSrc="assets/icons/assignment_icon.svg" alt="brief-icon" height="18" width="18">
-            <img ngSrc="assets/icons/delete_icon.svg" alt="brief-icon" height="18" width="18">
-            <img ngSrc="assets/icons/save_icon.svg" alt="brief-icon" height="18" width="18">
+            <button class="tooltip" data-tooltip="Copy brief to clipboard (markdown)"><img alt="brief-icon"
+                                                                                           class="tooltip"
+                                                                                           data-tooltip="Lorem ipsum dolor sit amet"
+                                                                                           height="18"
+                                                                                           ngSrc="assets/icons/assignment_icon.svg"
+                                                                                           width="18">
+            </button>
+            <button class="tooltip" data-tooltip="Delete brief"><img alt="brief-icon" height="18"
+                                                                     ngSrc="assets/icons/delete_icon.svg"
+                                                                     width="18"></button>
+            <button class="tooltip" data-tooltip="Save brief to pdf"><img alt="brief-icon" height="18"
+                                                                          ngSrc="assets/icons/save_icon.svg"
+                                                                          width="18"></button>
           </div>
           <div class="primary-actions">
             <button class="btn btn-link">Regenerate</button>
