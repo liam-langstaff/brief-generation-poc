@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-result',
@@ -7,7 +8,7 @@ import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
   providers: [provideMarkdown()],
   templateUrl: './result.component.html',
   styleUrl: './result.component.scss',
-  imports: [MarkdownComponent],
+  imports: [MarkdownComponent, NgOptimizedImage],
   encapsulation: ViewEncapsulation.None,
 })
 export class ResultComponent {
