@@ -69,9 +69,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #brief__actions {
   margin: 0 auto;
-  max-width: calc(1200px - 44px);
-  padding: 24px 0;
+  padding: 28px 10px;
   border-bottom: 1px solid $borderColor;
+
 
   .brief__actions-title {
     display: flex;
@@ -86,12 +86,12 @@ h1, h2, h3, h4, h5, h6 {
 
 #brief__actions-bar {
   display: flex;
+  gap: 12px;
 }
 
 .secondary-actions, .primary-actions {
   display: flex;
   align-items: center;
-  padding: 0 12px 0 0;
   gap: 8px;
   margin-top: 24px;
 }
@@ -133,6 +133,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#brief__avatars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-right: 1px solid $borderColor;
+  padding-right: 12px;
+
+  figure {
+    font-family: "Karla", sans-serif;
+  }
+}
+
 // medium breakpoint
 @media screen and (min-width: 768px) {
   #brief__meta {
@@ -148,6 +160,7 @@ h1, h2, h3, h4, h5, h6 {
   .primary-actions, .secondary-actions {
     margin-top: 0;
   }
+
 
   #brief__actions-bar {
     justify-content: flex-end;
