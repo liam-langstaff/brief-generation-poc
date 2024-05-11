@@ -28,6 +28,11 @@
   flex-direction: row;
 }
 
+li.nav-item {
+  display: flex;
+  align-items: center;
+}
+
 .header {
   display: flex;
   align-items: center;
