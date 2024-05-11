@@ -137,8 +137,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-right: 1px solid $borderColor;
-  padding-right: 12px;
+  border-left: 1px solid $borderColor;
+  padding-left: 12px;
 
   figure {
     font-family: "Karla", sans-serif;
