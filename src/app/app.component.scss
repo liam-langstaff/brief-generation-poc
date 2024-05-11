@@ -1,21 +1,37 @@
 .logo__container {
   background-color: #F3F4F1;
   transition: background-color 1s, color 1s;
+  font-family: "Karla", sans-serif;
+
+
+  button {
+    width: fit-content;
+    max-width: fit-content;
+  }
 
   .logo {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    float: none;
+    float: left;
     text-align: left;
     padding: 32px 20px 32px 0;
-    font-family: "Karla", sans-serif;
+
     font-size: 28px;
 
     span {
       font-weight: 700;
     }
   }
+}
+
+// NAV
+
+.nav {
+  flex-direction: row;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .hasFocus .logo__container {
