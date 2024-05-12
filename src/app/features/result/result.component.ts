@@ -8,7 +8,7 @@ import {
   NgStyle,
 } from '@angular/common';
 import TurndownService from 'turndown';
-import { GenerateQuestionsService } from '../services/generate-questions.service';
+import { GenerateQuestionsService } from '../generate/services/generate-questions.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

@@ -1,0 +1,32 @@
+$borderColor: lighten(#27292B, 70%);
+
+#my-briefs__actions {
+  margin: 0 auto 28px;
+  padding: 28px 10px;
+  border-bottom: 1px solid $borderColor;
+}
+
+.my-briefs__actions-title {
+  font-family: "Karla", sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  gap: 12px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+#my-briefs__active {
+  h3 {
+    font-family: "Karla", sans-serif;
+  }
+}
+
+.primary-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
