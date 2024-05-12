@@ -1,6 +1,16 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
-import {NgOptimizedImage} from "@angular/common";
+import {
+  AsyncPipe,
+  NgClass,
+  NgIf,
+  NgOptimizedImage,
+  NgStyle,
+} from '@angular/common';
+import TurndownService from 'turndown';
+import { GenerateQuestionsService } from '../services/generate-questions.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-result',
@@ -8,13 +18,21 @@ import {NgOptimizedImage} from "@angular/common";
   providers: [provideMarkdown()],
   templateUrl: './result.component.html',
   styleUrl: './result.component.scss',
-  imports: [MarkdownComponent, NgOptimizedImage],
+  imports: [
+    MarkdownComponent,
+    NgOptimizedImage,
+    AsyncPipe,
+    NgClass,
+    NgIf,
+    NgStyle,
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class ResultComponent {
+  briefAlreadyStarted$: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   toneMarkdown: string =
     'The tone we wish to convey is one of harmony, sophistication, and vibrancy. We aim to portray an image of a culinary experience that is not just about sustenance but also a celebration of well-being and environmental consciousness. Imagery should reflect freshness, diversity, and the joy of savoring wholesome meals.';
-
   targetAudienceMarkdown: string =
     'Our primary audience includes health-conscious individuals aged 25-55, encompassing busy professionals, fitness enthusiasts, and those with specific dietary preferences. HarmonyBites caters to individuals seeking a convenient yet conscientious approach to their daily meals, valuing both nutrition and sustainability.';
   styleGuideMarkdown: string =
@@ -57,4 +75,30 @@ export class ResultComponent {
     '4. **Blog / Recipes:** Culinary insights, nutrition tips, and featured recipes.\n' +
     '5. **Contact:** Contact information, customer support details, and inquiry form.\n' +
     '6. **Order / Subscription:** Seamless online ordering, subscription options, and account management.\n';
+
+  constructor(
+    private _gqs: GenerateQuestionsService,
+    private _router: Router,
+    private toastr: ToastrService,
+  ) {}
+
+  async copyMarkdownToClipboard() {
+    const turndownService = new TurndownService();
+
+    const element: HTMLElement = document.getElementById(
+      'whyUnique',
+    ) as HTMLElement; // replace 'your-element-id' by your actual element's id
+    const markdown = turndownService.turndown(
+      element.innerHTML as unknown as HTMLElement,
+    );
+
+    // Copy to clipboard
+    await navigator.clipboard.writeText(markdown);
+    this.toastr.success('Saved to clipboard', 'Clipboard');
+  }
+
+  beginRegen() {
+    this._gqs.isGenerating$.next(true);
+    this._router.navigate(['/']);
+  }
 }

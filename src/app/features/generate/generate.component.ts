@@ -175,6 +175,8 @@ export class GenerateComponent implements OnInit, OnDestroy {
   ) {
     this.startTyping();
 
+    this.checkIfRegen();
+
     this.isGenerating$.pipe(skipWhile((val) => !val)).subscribe((val) => {
       // if (!val) this._gqs.setFocusBackgroundSource$.next(false);
     });
@@ -192,6 +194,17 @@ export class GenerateComponent implements OnInit, OnDestroy {
 
   get canPreviousSet(): boolean {
     return this.currentSetIndex - 1 !== -1;
+  }
+
+  checkIfRegen() {
+    console.log('here');
+    this._gqs.isGenerating$.subscribe((isRegen) => {
+      console.log(isRegen);
+      if (isRegen) {
+        this._gqs.setFocusBackground(true);
+        this.startGeneration();
+      }
+    });
   }
 
   ngOnInit(): void {}
@@ -302,6 +315,7 @@ export class GenerateComponent implements OnInit, OnDestroy {
     this.isGenerating$.next(true);
     setTimeout(() => {
       this.isGenerating$.next(false);
+      this._gqs.isGenerating$.next(false);
       // route to /result with route data id
       this._router.navigate([
         '/result',

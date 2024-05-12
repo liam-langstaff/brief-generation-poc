@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" id="test">
   <div class="container" id="brief__header">
     <div class="columns">
       <div class="column col-6  col-sm-12" id="brief__title">
@@ -36,23 +36,30 @@
         <div id="brief__actions-bar">
 
           <div class="secondary-actions">
-            <button class="tooltip" data-tooltip="Copy brief to clipboard (markdown)"><img alt="brief-icon"
-                                                                                           class="tooltip"
-                                                                                           data-tooltip="Lorem ipsum dolor sit amet"
-                                                                                           height="18"
-                                                                                           ngSrc="assets/icons/assignment_icon.svg"
-                                                                                           width="18">
+            <button (click)="copyMarkdownToClipboard()" class="tooltip"
+                    data-tooltip="Copy brief to clipboard (markdown)">
+              <img alt="brief-icon"
+                   class="tooltip"
+                   data-tooltip="Lorem ipsum dolor sit amet"
+                   height="18"
+                   ngSrc="assets/icons/assignment_icon.svg"
+                   width="18">
             </button>
             <button class="tooltip" data-tooltip="Delete brief"><img alt="brief-icon" height="18"
                                                                      ngSrc="assets/icons/delete_icon.svg"
                                                                      width="18"></button>
-            <button class="tooltip" data-tooltip="Save brief to pdf"><img alt="brief-icon" height="18"
+            <button class="tooltip" data-tooltip="Save brief to pdf"><img alt="brief-icon"
+                                                                          height="18"
                                                                           ngSrc="assets/icons/save_icon.svg"
                                                                           width="18"></button>
           </div>
-          <div class="primary-actions">
-            <button class="btn btn-link">Regenerate</button>
-            <button class="btn btn-primary">Start</button>
+          <div [ngStyle]="{'padding-left': (briefAlreadyStarted$ | async) ? '12px' : 'auto'}" class="primary-actions">
+            <button (click)="beginRegen()" *ngIf="!(briefAlreadyStarted$ | async)" class="btn btn-link">Regenerate
+            </button>
+            <button (click)="briefAlreadyStarted$.emit(true)"
+                    [ngClass]="{'btn-primary': !(briefAlreadyStarted$ | async), 'btn-success': (briefAlreadyStarted$ | async)}"
+                    class="btn">{{ (briefAlreadyStarted$ | async) ? 'Complete' : 'Start' }}
+            </button>
           </div>
         </div>
       </div>
@@ -82,7 +89,7 @@
         </div>
       </div>
       <div class="column col-4 col-md-6 col-sm-12">
-        <div class="brief__fw-box box2">
+        <div class="brief__fw-box box2" id="whyUnique">
           <h3>Why is HarmonyBites unique?</h3>
           <p>HarmonyBites distinguishes itself in the crowded meal delivery market through an unwavering commitment to
             the trinity of health, taste, and sustainability. What sets us apart is our holistic approach — we are not

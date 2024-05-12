@@ -6,7 +6,8 @@ import { ResultComponent } from './features/generate/result/result.component';
 export const routes: Routes = [
   {
     path: '',
-    component: GenerateComponent,
+    redirectTo: 'generate',
+    pathMatch: 'full',
   },
   {
     path: 'generate',

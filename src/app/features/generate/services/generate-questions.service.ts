@@ -1,15 +1,14 @@
-import { Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GenerateQuestionsService {
-
+  setFocusBackgroundSource$ = new BehaviorSubject<boolean>(false);
+  isGenerating$: ReplaySubject<boolean> = new ReplaySubject<boolean>();
   private isTypingSource = new BehaviorSubject(false);
   isTyping$ = this.isTypingSource.asObservable();
-  setFocusBackgroundSource$ = new BehaviorSubject<boolean>(false);
 
   setIsTyping(value: boolean) {
     this.isTypingSource.next(value);
@@ -19,6 +18,4 @@ export class GenerateQuestionsService {
   setFocusBackground(setFocus: boolean) {
     this.setFocusBackgroundSource$.next(setFocus);
   }
-
-
 }

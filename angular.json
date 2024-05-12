@@ -31,7 +31,8 @@
             ],
             "styles": [
               "node_modules/spectre.css/dist/spectre.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
