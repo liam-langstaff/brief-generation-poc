@@ -47,11 +47,12 @@ h1, h2, h3, h4, h5, h6 {
     height: 200px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 
-  .pill {
-    z-index: 3;
-    position: relative;
-  }
+    .pill {
+      z-index: 3;
+      position: relative;
+    }
 
     .expand-icon {
       position: absolute;
@@ -188,6 +189,29 @@ h1, h2, h3, h4, h5, h6 {
   figure {
     font-family: "Karla", sans-serif;
   }
+}
+
+.image-container img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
 }
 
 // medium breakpoint

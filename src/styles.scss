@@ -110,6 +110,12 @@ button {
   border-radius: 2rem;
 }
 
+.btn {
+  &.btn-primary, &.btn-secondary, &.btn-icon, &.btn-success {
+    padding: 0.25rem 1.45rem;
+  }
+}
+
 .library-card {
   display: flex;
   flex-direction: column;

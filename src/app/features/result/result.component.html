@@ -69,16 +69,23 @@
   <div class="container" id="brief__inspiration">
     <div class="columns">
       <div class="column col-12">
-        <div class="brief__fw-box inspiration-img">
+        <div (click)="isLightboxVisible = true" class="brief__fw-box inspiration-img">
           <div class="pill">Inspiration</div>
           <img alt="brief-icon-expand" class="expand-icon" height="42" src="../../../assets/icons/photo_expand.svg"
                width="42">
 
           <div class="glassmorphia"></div>
-          <img alt="brief-inspiration-image" src="../../../assets/img/placeholder-ai-image.png">
-        </div>
+          <img alt="brief-inspiration-image"
+               src="../../../assets/img/placeholder-ai-image.png">
 
+
+        </div>
+        <div (click)="isLightboxVisible = false" *ngIf="isLightboxVisible" class="lightbox">
+          <img (click)="isLightboxVisible = false" alt="Image" src="../../../assets/img/placeholder-ai-image.png">
+        </div>
         <div class="info-box"><p>Note: Use this image as inspiration towards your final design</p></div>
+
+
       </div>
     </div>
   </div>

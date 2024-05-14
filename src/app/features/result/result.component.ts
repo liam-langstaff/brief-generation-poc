@@ -75,6 +75,7 @@ export class ResultComponent {
     '4. **Blog / Recipes:** Culinary insights, nutrition tips, and featured recipes.\n' +
     '5. **Contact:** Contact information, customer support details, and inquiry form.\n' +
     '6. **Order / Subscription:** Seamless online ordering, subscription options, and account management.\n';
+  isLightboxVisible: boolean = false;
 
   constructor(
     private _gqs: GenerateQuestionsService,
