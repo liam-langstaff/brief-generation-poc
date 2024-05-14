@@ -1,4 +1,9 @@
-import { Component, EventEmitter, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
 import {
   AsyncPipe,
@@ -28,7 +33,7 @@ import { ToastrService } from 'ngx-toastr';
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class ResultComponent {
+export class ResultComponent implements OnInit {
   briefAlreadyStarted$: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   toneMarkdown: string =
@@ -82,6 +87,8 @@ export class ResultComponent {
     private _router: Router,
     private toastr: ToastrService,
   ) {}
+
+  ngOnInit() {}
 
   async copyMarkdownToClipboard() {
     const turndownService = new TurndownService();

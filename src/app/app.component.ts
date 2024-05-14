@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { GenerateQuestionsService } from './features/generate/services/generate-questions.service';
-import {FooterComponent} from "./shared/features/footer/footer.component";
+import { FooterComponent } from './shared/features/footer/footer.component';
+import { SupabaseService } from './core/services/supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent {
   constructor(
     private _gqs: GenerateQuestionsService,
     private _router: Router,
+    private supabaseService: SupabaseService,
   ) {
     this._gqs.setFocusBackgroundSource$.subscribe((value) => {
       // set body element class

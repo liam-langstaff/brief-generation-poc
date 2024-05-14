@@ -6,13 +6,15 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class SupabaseService {
-  supabase: SupabaseClient;
+  supabase: SupabaseClient = {} as SupabaseClient;
 
-  constructor() {
-    console.log('here');
+  constructor() {}
+
+  setupSupabase() {
     this.supabase = new SupabaseClient(
       environment.SUPABASE_URL,
       environment.SUPABASE_ANON_KEY,
     );
+    console.log('Client initialized');
   }
 }
