@@ -3,12 +3,12 @@ import { GenerateComponent } from './features/generate/generate.component';
 import { resultGuard } from './features/generate/guards/result.guard';
 import { ResultComponent } from './features/result/result.component';
 import { MyBriefsComponent } from './features/my-briefs/my-briefs.component';
+import {HomepageComponent} from "./features/homepage/homepage.component";
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'generate',
-    pathMatch: 'full',
+    component: HomepageComponent
   },
   {
     path: 'generate',

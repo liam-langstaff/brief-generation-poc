@@ -3,11 +3,12 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { GenerateQuestionsService } from './features/generate/services/generate-questions.service';
 import { FooterComponent } from './shared/features/footer/footer.component';
 import { SupabaseService } from './core/services/supabase.service';
+import {AsyncPipe, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, RouterLink],
+  imports: [RouterOutlet, FooterComponent, RouterLink, NgOptimizedImage, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

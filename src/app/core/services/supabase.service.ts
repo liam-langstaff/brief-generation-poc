@@ -17,4 +17,18 @@ export class SupabaseService {
     );
     console.log('Client initialized');
   }
+
+  googleLogin() {
+    return this.supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `https://eamejbzsjhqyuakkxrxq.supabase.co/auth/v1/callback`,
+        queryParams: { access_type: 'offline', prompt: 'consent', }
+      }
+    }).then((login) => this.supabase.auth.getSession().then(res => console.log(res.data)));
+  }
+
+  async getAuthsession() {
+    return await this.supabase.auth.getUser();
+  }
 }

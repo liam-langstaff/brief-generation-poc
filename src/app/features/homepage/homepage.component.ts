@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SupabaseService} from "../../core/services/supabase.service";
 
 @Component({
   selector: 'app-homepage',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
+  constructor(private supabaseService: SupabaseService) {
+  }
 
 }

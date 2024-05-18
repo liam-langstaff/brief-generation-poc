@@ -4,10 +4,34 @@
       <button (click)="routeToGenerate()" class="logo"><span>BRIEF</span>FORGE</button>
       <ul class="nav">
         <li class="nav-item">
-          <a href="#">Generate</a>
+          <a [routerLink]="['/generate']">Generate</a>
         </li>
         <li class="nav-item">
           <a [routerLink]="['my-briefs']">My briefs</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">
+            <div id="g_id_onload"
+                 data-client_id="148192535631-f2p0vk0m9nioeg1cl93i433r0mof3bt7.apps.googleusercontent.com"
+                 data-context="signup"
+                 data-ux_mode="popup"
+                 data-login_uri="https://eamejbzsjhqyuakkxrxq.supabase.co/auth/v1/callback"
+                 data-itp_support="true">
+            </div>
+
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-shape="rectangular"
+                 data-theme="outline"
+                 data-text="signin_with"
+                 data-size="large"
+                 data-logo_alignment="left">
+            </div>
+<!--              <button class="btn btn-primary btn-icon">Log in with Google<img alt="library-icon" height="14"-->
+<!--                                                                            ngSrc="../../assets/icons/google.svg"-->
+<!--                                                                            width="14">-->
+<!--              </button>-->
+          </a>
         </li>
         <li class="nav-item">
           <a href="#">

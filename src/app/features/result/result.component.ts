@@ -107,6 +107,6 @@ export class ResultComponent implements OnInit {
 
   beginRegen() {
     this._gqs.isGenerating$.next(true);
-    this._router.navigate(['/']);
+    this._router.navigate(['/generate']);
   }
 }
