@@ -7,7 +7,7 @@ html, body {
   padding: 0;
   margin: 0;
   display: block;
-  font-family: "Merriweather", serif;
+  font-family: "karla", serif;
   font-weight: 400;
   background-color: #F3F4F1;
   color: #27292B;
@@ -106,8 +106,13 @@ button {
   gap: 8px;
 }
 
+.btn-filled {
+  width: 100%;
+}
+
 .btn {
   border-radius: 2rem;
+  line-height: inherit;
 }
 
 .btn {
@@ -177,3 +182,12 @@ button {
   font-family: "Karla", sans-serif !important;
 }
 
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

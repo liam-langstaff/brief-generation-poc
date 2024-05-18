@@ -1,0 +1,64 @@
+button.pswdRevealButton::ng-deep {
+  margin-bottom: 0 !important;
+
+  .mat-icon {
+    margin: 0 18px 0 0;
+  }
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
+}
+
+.auth__card {
+  -webkit-box-shadow: 0px 0px 40px -3px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: 0px 0px 40px -3px rgba(0, 0, 0, 0.31);
+  box-shadow: 0px 0px 40px -3px rgba(0, 0, 0, 0.31);
+  text-align: center;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  height: fit-content;
+
+  &--container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  &--header {
+    h1 {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+  }
+
+  &--content {
+
+    &::ng-deep mat-form-field {
+      min-width: 100%;
+    }
+
+    &--input {
+      margin-bottom: 18px;
+    }
+
+    button {
+      float: none;
+      margin: 0 auto 8px auto;
+    }
+  }
+
+  &--footer {
+    font-size: 12px;
+    margin-top: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .auth__card {
+    padding: 68px 100px;
+  }
+}

@@ -1,0 +1,141 @@
+<div class="page">
+  <div class="container">
+    <div class="columns">
+      <div class="column col-6 col-mx-auto col-sm-12">
+        <div class="auth__card--container">
+          <div class="card auth__card">
+
+            <div *ngIf="signUpMode$ | async" id="signUp">
+              <div class="auth__card--header">
+                <h1>Sign Up</h1>
+                <p>Let's get started with your free account</p>
+              </div>
+
+              <div *ngIf="!(signUpWithEmail$ | async); else signUpWithEmail" class="auth__card--content">
+                <button class="btn btn-primary btn-icon">Sign up with Google<img alt="google-icon" height="14"
+                                                                                 ngSrc="../../assets/icons/google.svg"
+                                                                                 width="14">
+                </button>
+
+                <button (click)="signUpWithEmail$.next(true)" class="btn btn-icon">Sign up with Email<img
+                  alt="email-icon" height="18"
+                  ngSrc="../../assets/icons/email_icon.svg"
+                  width="18">
+                </button>
+                <p>Already have an account? <a (click)="signUpMode$.next(false)" href="javascript:">Log In</a></p>
+              </div>
+
+              <ng-template #signUpWithEmail>
+                <div class="auth__card--content">
+                  <div class="auth__card--content--input">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Name</mat-label>
+                      <input [formControl]="signUpNameControl" [required]="true" matInput>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="auth__card--content--input">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input [formControl]="signUpEmailControl" [required]="true" [type]="'email'" matInput>
+                      @if (signUpForm.controls['email'].hasError('email') && !signUpForm.controls['email'].hasError('required')) {
+                        <mat-error>Please enter a valid email address</mat-error>
+                      }
+                      @if (signUpForm.controls['email'].hasError('required')) {
+                        <mat-error>Email is <strong>required</strong></mat-error>
+                      }
+                    </mat-form-field>
+                  </div>
+
+                  <div class="auth__card--content--input">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Password</mat-label>
+                      <input [formControl]="signUpPasswordControl" [required]="true"
+                             [type]="passwordVisible ? 'text' : 'password'" matInput>
+
+
+                      <button (click)="passwordVisible = !passwordVisible" [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="!passwordVisible"
+                              class="pswdRevealButton" mat-icon-button
+                              matSuffix
+                              type="button">
+                        <mat-icon>{{ passwordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </div>
+
+                  {{ signUpForm.valid }}
+                  <button [disabled]="!signUpForm.valid" class="btn btn-lg btn-primary btn-filled mb-2">Sign Up
+                  </button>
+                  <div class="divider text-center" data-content="or"></div>
+                  <button class="btn btn-primary btn-icon" style="width: 100%;
+    justify-content: center;">Sign up with Google<img alt="google-icon" height="14"
+                                                      ngSrc="../../assets/icons/google.svg"
+                                                      width="14">
+                  </button>
+                  <p>Already have an account? <a (click)="signUpMode$.next(false)" href="javascript:">Log In</a></p>
+                </div>
+
+
+              </ng-template>
+
+              <div class="auth__card--footer">
+                <p>By signing up to create an account I accept Company's <a>Terms of Use and Privacy Policy</a></p>
+              </div>
+            </div>
+
+            <div *ngIf="!(signUpMode$ | async)" id="signIn">
+              <div class="auth__card--header">
+                <h1>Welcome back</h1>
+                <p>Let's get you back into the swing of it</p>
+              </div>
+
+              <div class="auth__card--content">
+
+                <div class="auth__card--content--input">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input [formControl]="signInEmailControl" [required]="true" [type]="'email'" matInput>
+                    @if (signInForm.controls['email'].hasError('email') && !signInForm.controls['email'].hasError('required')) {
+                      <mat-error>Please enter a valid email address</mat-error>
+                    }
+                    @if (signInForm.controls['email'].hasError('required')) {
+                      <mat-error>Email is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="auth__card--content--input">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [formControl]="signInPasswordControl" [required]="true"
+                           [type]="passwordVisible ? 'text' : 'password'" matInput>
+
+
+                    <button (click)="passwordVisible = !passwordVisible" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="!passwordVisible"
+                            class="pswdRevealButton" mat-icon-button
+                            matSuffix
+                            type="button">
+                      <mat-icon>{{ passwordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </div>
+
+
+                <button [disabled]="signInForm.invalid" class="btn btn-lg btn-primary btn-filled mb-2">Sign In</button>
+                <p>Need an account? <a (click)="signUpMode$.next(true)" href="javascript:">Sign Up</a></p>
+              </div>
+
+              <div class="auth__card--footer">
+                <p>By signing up to create an account I accept Company's <a>Terms of Use and Privacy Policy</a></p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
