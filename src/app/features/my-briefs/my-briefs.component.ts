@@ -13,7 +13,6 @@ export class MyBriefsComponent implements AfterViewInit {
   ngAfterViewInit() {
     document.querySelectorAll('.library-card__image').forEach((item) => {
       if (item instanceof HTMLElement) {
-        console.log(item);
         item.style.backgroundColor = this.getRandomColor();
       }
     });

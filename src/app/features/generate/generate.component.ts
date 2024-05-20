@@ -197,9 +197,7 @@ export class GenerateComponent implements OnInit, OnDestroy {
   }
 
   checkIfRegen() {
-    console.log('here');
     this._gqs.isGenerating$.subscribe((isRegen) => {
-      console.log(isRegen);
       if (isRegen) {
         this._gqs.setFocusBackground(true);
         this.startGeneration();
@@ -222,7 +220,6 @@ export class GenerateComponent implements OnInit, OnDestroy {
       this.allQuestionsAnswered = false;
       this._gqs.setFocusBackground(false);
       this.currentSetIndex--;
-      console.log('navigated to step', this.currentSetIndex);
       this.currentSet$.next(this.questionData.sets[this.currentSetIndex]);
     }
   }
@@ -299,7 +296,6 @@ export class GenerateComponent implements OnInit, OnDestroy {
       this.completeStep(this.currentSetIndex);
       this.cd.detectChanges();
     }
-    console.log(this.overviewStringParts);
 
     // Navigate to the next set if there is one
     const hasNextStep = this.questionData.sets[this.currentSetIndex + 1];
@@ -325,7 +321,6 @@ export class GenerateComponent implements OnInit, OnDestroy {
   }
 
   private endOfSets() {
-    console.log('last question answered');
     this.allQuestionsAnswered = true;
     this._gqs.setFocusBackground(true);
     this.currentSetIndex++;
@@ -353,7 +348,6 @@ export class GenerateComponent implements OnInit, OnDestroy {
     // this.renderer.appendChild(parent, typingElement);
 
     const word = param.part;
-    console.log(this.currentStringIndex);
 
     const interval = setInterval(() => {
       if (this.currentStringIndex < word.length) {

@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-briefforge-dev-33b32-authRole",
+      "UnauthRoleArn": "arn:aws:iam::058264479963:role/amplify-briefforge-dev-33b32-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::058264479963:role/amplify-briefforge-dev-33b32-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-briefforge-dev-33b32-deployment",
+      "UnauthRoleName": "amplify-briefforge-dev-33b32-unauthRole",
+      "StackName": "amplify-briefforge-dev-33b32",
+      "StackId": "arn:aws:cloudformation:eu-west-1:058264479963:stack/amplify-briefforge-dev-33b32/246f99f0-16da-11ef-94b8-061abf9cc485",
+      "AmplifyAppId": "dqfvnsjoosp8x"
+    }
+  }
+}

@@ -3,22 +3,23 @@
     <div class="column col-12 header">
       <button (click)="routeToGenerate()" class="logo"><span>BRIEF</span>FORGE</button>
       <ul class="nav">
-        <li class="nav-item">
+        <li *ngIf="isAuthed$ | async" class="nav-item">
           <a [routerLink]="['/generate']">Generate</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isAuthed$ | async" class="nav-item">
           <a [routerLink]="['my-briefs']">My briefs</a>
         </li>
-        <li class="nav-item">
-          <a href="#">
+        <li *ngIf="!(isAuthed$ | async)" class="nav-item">
+          <a [routerLink]="['login']">
             <button class="btn btn-primary">Log in</button>
           </a>
         </li>
-        <!--        <li class="nav-item">-->
-        <!--          <a href="#">-->
-        <!--            <figure class="avatar avatar-md" data-initial="LL" style="background-color: #5755d9;"></figure>-->
-        <!--          </a>-->
-        <!--        </li>-->
+        <li *ngIf="isAuthed$ | async" class="nav-item">
+          <a (click)="logout()" href="#">
+            <figure [attr.data-initial]="getInitials() | async" class="avatar avatar-md"
+                    style="background-color: #5755d9;"></figure>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

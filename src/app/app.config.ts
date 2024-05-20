@@ -17,7 +17,8 @@ export const appConfig: ApplicationConfig = {
       useFactory: initializeSupabase,
       multi: true,
       deps: [SupabaseService],
-    }, provideAnimationsAsync(),
+    },
+    provideAnimationsAsync(),
   ],
 };
 

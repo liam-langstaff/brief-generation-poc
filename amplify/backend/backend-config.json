@@ -1,0 +1,8 @@
+{
+  "custom": {
+    "customResource2928456e": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    }
+  }
+}

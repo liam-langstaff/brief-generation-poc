@@ -12,9 +12,10 @@
               </div>
 
               <div *ngIf="!(signUpWithEmail$ | async); else signUpWithEmail" class="auth__card--content">
-                <button class="btn btn-primary btn-icon">Sign up with Google<img alt="google-icon" height="14"
-                                                                                 ngSrc="../../assets/icons/google.svg"
-                                                                                 width="14">
+                <button (click)="signUpWithGoogle()" class="btn btn-primary btn-icon">Sign up with Google<img
+                  alt="google-icon" height="14"
+                  ngSrc="../../assets/icons/google.svg"
+                  width="14">
                 </button>
 
                 <button (click)="signUpWithEmail$.next(true)" class="btn btn-icon">Sign up with Email<img
@@ -64,8 +65,8 @@
                     </mat-form-field>
                   </div>
 
-                  {{ signUpForm.valid }}
-                  <button [disabled]="!signUpForm.valid" class="btn btn-lg btn-primary btn-filled mb-2">Sign Up
+                  <button (click)="signUpNewUser()" [disabled]="!signUpForm.valid"
+                          class="btn btn-lg btn-primary btn-filled mb-2">Sign Up
                   </button>
                   <div class="divider text-center" data-content="or"></div>
                   <button class="btn btn-primary btn-icon" style="width: 100%;
@@ -123,7 +124,9 @@
                 </div>
 
 
-                <button [disabled]="signInForm.invalid" class="btn btn-lg btn-primary btn-filled mb-2">Sign In</button>
+                <button (click)="signInUser()" [disabled]="signInForm.invalid"
+                        class="btn btn-lg btn-primary btn-filled mb-2">Sign In
+                </button>
                 <p>Need an account? <a (click)="signUpMode$.next(true)" href="javascript:">Sign Up</a></p>
               </div>
 
