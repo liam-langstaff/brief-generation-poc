@@ -9,7 +9,18 @@
       "UnauthRoleName": "amplify-briefforge-dev-33b32-unauthRole",
       "StackName": "amplify-briefforge-dev-33b32",
       "StackId": "arn:aws:cloudformation:eu-west-1:058264479963:stack/amplify-briefforge-dev-33b32/246f99f0-16da-11ef-94b8-061abf9cc485",
-      "AmplifyAppId": "dqfvnsjoosp8x"
+      "AmplifyAppId": "dqfvnsjoosp8x",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-briefforge-dev-33b32-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "getSecrets": {
+          "secretsPathAmplifyAppId": "dqfvnsjoosp8x"
+        }
+      },
+      "auth": {
+        "briefforge": {}
+      }
     }
   }
 }

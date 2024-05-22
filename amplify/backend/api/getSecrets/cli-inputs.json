@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "paths": {
+    "/getSecrets": {
+      "name": "/getSecrets",
+      "lambdaFunction": "getSecrets",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    }
+  }
+}
