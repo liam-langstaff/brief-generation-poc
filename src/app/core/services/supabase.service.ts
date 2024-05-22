@@ -3,6 +3,7 @@ import { AuthUser, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +15,20 @@ export class SupabaseService {
     AuthUser | boolean | null
   >(null);
 
-  constructor(private _router: Router) {}
+  constructor(
+    private _router: Router,
+    private http: HttpClient,
+  ) {}
 
   setupSupabase() {
-    this.supabase = new SupabaseClient(
-      environment.SUPABASE_URL,
-      environment.SUPABASE_ANON_KEY,
-    );
-    this.checkIfAlreadyAuthenticated();
-    this.listenToSupabaseEvents();
+    this.http.get('/your-endpoint-url').subscribe((data) => {
+      this.supabase = new SupabaseClient(
+        environment.SUPABASE_URL,
+        environment.SUPABASE_ANON_KEY,
+      );
+      this.checkIfAlreadyAuthenticated();
+      this.listenToSupabaseEvents();
+    });
   }
 
   signUpUserWithGoogleProvider() {
