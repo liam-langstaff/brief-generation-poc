@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+/src/environments/.env
+/src/environments/*
+
 # Node
 /node_modules
 npm-debug.log
@@ -62,3 +65,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+/src/environments/*
