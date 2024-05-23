@@ -17,7 +17,6 @@ export class SupabaseService {
   constructor(private _router: Router) {}
 
   setupSupabase() {
-    console.log((window as any).process.env.SUPABASE_URL);
     this.supabase = new SupabaseClient(
       environment.SUPABASE_URL,
       environment.SUPABASE_ANON_KEY,
