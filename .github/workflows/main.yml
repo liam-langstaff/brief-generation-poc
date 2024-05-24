@@ -39,10 +39,9 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         run: npm i ts-node && npm i dotenv && npm run build
 
-      - name: Deploy to Github Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          branch: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
-          folder: dist/brief-generation-poc       # Replace `YOUR_PROJECT_NAME` with name of your project
-          clean: true
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+          env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
