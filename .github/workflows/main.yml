@@ -43,5 +43,5 @@ jobs:
         run: |
           npm install gh-pages --save-dev
 
-          gh-pages -d --cname briefforge.com"
+          gh-pages -d dist --cname briefforge.com"
 
