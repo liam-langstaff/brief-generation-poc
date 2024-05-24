@@ -42,4 +42,4 @@ jobs:
       - name: Deploy with gh-pages
         run: |
           npm i gh-pages
-          gh-pages -d build --cname custom-domain.com
+          gh-pages -d build --cname briefforge.com
