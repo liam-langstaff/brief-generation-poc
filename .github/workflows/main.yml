@@ -44,5 +44,5 @@ jobs:
         with:
           branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: dist/YOUR_PROJECT_NAME       # Replace `YOUR_PROJECT_NAME` with name of your project
+          folder: dist/brief-generation-poc       # Replace `YOUR_PROJECT_NAME` with name of your project
           clean: true
