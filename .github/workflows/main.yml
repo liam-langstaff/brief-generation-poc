@@ -20,7 +20,10 @@ jobs:
           node-version: '18.16.0'  # Specify the Node.js version
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install ts-node
+          npm install dotenv
 
       - name: Build project
         run: npm run build --prod -- --base-href="/brief-generation-poc/"
