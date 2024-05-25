@@ -31,9 +31,11 @@ jobs:
       - name: Create CNAME file
         run: echo 'www.briefforge.com' > ./dist/brief-generation-poc/CNAME
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy with gh-pages
         run: |
-          npm install -g gh-pages
-          gh-pages -d dist/brief-generation-poc
-        env:
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d dist/brief-generation-poc -u "github-actions-bot <support+actions@github.com>"
+          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
